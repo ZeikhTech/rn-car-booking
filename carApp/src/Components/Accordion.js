@@ -103,29 +103,29 @@ export default class App extends Component {
 
   renderContent(section, _, isActive) {
     return (
-      <Animatable.View
-        duration={400}
-        style={[
-          styles.content,
-          isActive ? styles.contentActive : styles.contentInactive,
-        ]}
-        transition="backgroundColor">
-        <Animatable.Text
-          style={styles.contentText}
-          animation={isActive ? 'bounceIn' : undefined}>
-          <Text style={{color: 'gray'}}>Total Include vat:</Text> {'\n'}
-          {section.vat}
-          {'\n'}
-          {'\n'}
-          <Text style={{color: 'gray'}}>Mileage:</Text>
-          {'\n'} {section.mileage}
-          {'\n'}
-          {'\n'}
-          <Text style={{color: 'gray'}}>Description:</Text>
-          {'\n '}
-          {section.description}
-        </Animatable.Text>
-      </Animatable.View>
+      <View style={styles.contentContainer}>
+        <Animatable.View
+          duration={300}
+          style={[isActive ? styles.contentActive : styles.contentInactive]}
+          // transition="backgroundColor"
+        >
+          <Animatable.Text
+            style={styles.contentText}
+            animation={isActive ? 'bounceIn' : undefined}>
+            <Text style={{color: 'gray'}}>Total Include vat:</Text> {'\n'}
+            {section.vat}
+            {'\n'}
+            {'\n'}
+            <Text style={{color: 'gray'}}>Mileage:</Text>
+            {'\n'} {section.mileage}
+            {'\n'}
+            {'\n'}
+            <Text style={{color: 'gray'}}>Description:</Text>
+            {'\n '}
+            {section.description}
+          </Animatable.Text>
+        </Animatable.View>
+      </View>
     );
   }
 
@@ -155,7 +155,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '80%',
+    width: '85%',
     height: '100%',
     alignSelf: 'center',
   },
@@ -181,9 +181,14 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontWeight: '500',
   },
+  contentContainer: {},
   content: {
+    width: 290,
+    height: 185,
     padding: 20,
     borderRadius: 20,
+    borderColor: Colors.placeholder,
+    elevation: 5,
     backgroundColor: Colors.white,
   },
   active: {
@@ -203,9 +208,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   contentActive: {
+    height: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 20,
-    borderWidth: 1,
-    borderColor: Colors.primary,
+    elevation: 2.5,
     backgroundColor: Colors.white,
   },
   contentInActive: {},

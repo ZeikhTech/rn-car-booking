@@ -34,6 +34,7 @@ const Service = () => {
             height: 50,
             position: 'relative',
             bottom: 220,
+            left: 10,
           }}
         />
       </View>
@@ -71,15 +72,17 @@ function AppointmentScreen(props) {
             <Text style={styles.title}>Appointment Booking</Text>
           </View>
         </View>
+
         <View style={styles.tabContainer}>
           <TabNavigator
             tabBarStyle={{
               position: 'absolute',
-              top: -5,
+              top: 15,
               left: 20,
               width: '90%',
               height: 55,
-              borderRadius: 25,
+              borderRadius: 15,
+              borderTopWidth: 0,
               elevation: 10,
             }}
             hidesTabTouch={false}>
@@ -176,11 +179,13 @@ function AppointmentScreen(props) {
             </TabNavigator.Item>
           </TabNavigator>
         </View>
-        <View style={styles.pagination}>
-          <Text style={{color: 'gray'}}>1 of 6</Text>
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button title="continue" onPress={props.onPress} />
+        <View style={styles.nexer}>
+          <View style={styles.pagination}>
+            <Text style={{color: 'gray'}}>1 of 6</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button title="continue" onPress={props.onPress} />
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -190,7 +195,6 @@ function AppointmentScreen(props) {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    // backgroundColor: '#f0f0f0',
   },
   container: {
     flex: 1,
@@ -218,10 +222,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabContainer: {
-    flex: 0.96,
-    top: 30,
-    width: '95%',
-    alignSelf: 'center',
+    flex: 1,
+    width: '100%',
   },
   welcome: {
     fontSize: 20,
@@ -229,24 +231,31 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   stepContainer: {
-    top: 30,
+    top: 40,
     alignItems: 'center',
   },
   swiperContainer: {
     position: 'absolute',
     top: 200,
-    // left: 0,
-    // right: 0,
+  },
+  nexer: {
+    position: 'absolute',
+    alignSelf: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    bottom: 25,
   },
   pagination: {
     position: 'absolute',
     alignSelf: 'center',
-    bottom: 90,
+    bottom: 70,
   },
   buttonContainer: {
-    position: 'absolute',
-    alignSelf: 'center',
-    bottom: 25,
+    // position: 'absolute',
+    // alignSelf: 'center',
+    // bottom: 25,
   },
 });
 
